@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Raleway:wght@400;700&display=swap');
+
+body {
+  background-color: aliceblue;
+  font-family: 'Raleway', sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Abel', sans-serif;
+
+}
+
+.primario {
+  background-color: #182C61;
+}
+
+.secundario {
+  background-color: #3B3B98;
+}
+
+.boton {
+  background-color: #182C61;
+  color: #fff;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  transition: all ease 400ms;
+
+}
+
+.boton:hover {
+  background-color: #3B3B98;
+  transform: scale(1.05);
+}
