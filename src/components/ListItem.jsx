@@ -1,29 +1,37 @@
-import React from 'react'
+import { GitItem } from './';
+import { useFetch } from '../hooks/useFetch';
 
-export const ListItem = () => {
+export const ListItem = ({ category }) => {
+
+    const { datos, isLoading } = useFetch(category);
+
     return (
         <div className='border mt-3'>
-            <h2 className='primario text-center text-white p-2 m-0'>Dragon Ball</h2>
-            <div className="row m-0">
-                <div className="card col-4 rounded-0 p-2 plomo">
-                    <img src="/a.png" className="card-img-top" alt="..." />
-                    <div className="card-body">
-                        <h5 className="card-title m-0 border text-center rounded-1 p-1">Oso peresoso</h5>
-                    </div>
+            <h2 className='primario text-center text-white p-2 m-0'>{category}</h2>
+            {isLoading ? (
+                <div className="sk-circle">
+                    <div className="sk-circle1 sk-child"></div>
+                    <div className="sk-circle2 sk-child"></div>
+                    <div className="sk-circle3 sk-child"></div>
+                    <div className="sk-circle4 sk-child"></div>
+                    <div className="sk-circle5 sk-child"></div>
+                    <div className="sk-circle6 sk-child"></div>
+                    <div className="sk-circle7 sk-child"></div>
+                    <div className="sk-circle8 sk-child"></div>
+                    <div className="sk-circle9 sk-child"></div>
+                    <div className="sk-circle10 sk-child"></div>
+                    <div className="sk-circle11 sk-child"></div>
+                    <div className="sk-circle12 sk-child"></div>
                 </div>
-                <div className="card col-4 rounded-0 p-2 plomo">
-                    <img src="/a.png" className="card-img-top" alt="..." />
-                    <div className="card-body">
-                        <h5 className="card-title m-0 border text-center rounded-1 p-1">Oso peresoso</h5>
-                    </div>
+            ) : (
+                <div className="row m-0">
+
+                    {datos.map(item => (
+                        <GitItem key={item.id} {...item} />
+                    ))}
+
                 </div>
-                <div className="card col-4 rounded-0 p-2 plomo">
-                    <img src="/a.png" className="card-img-top" alt="..." />
-                    <div className="card-body">
-                        <h5 className="card-title m-0 border text-center rounded-1 p-1">Oso peresoso</h5>
-                    </div>
-                </div>
-            </div>
+            )}
         </div>
     )
 }
